@@ -10,6 +10,11 @@ pipeline {
                 '''
             }
         }
+        stage('HTML Linting') {
+            steps {
+                sh 'tidy -q -e *.html'
+            }
+        }
         stage('Upload to S3') {
             steps {
                 withAWS(region:'us-west-2') {
