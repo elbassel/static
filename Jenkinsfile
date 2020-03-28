@@ -12,7 +12,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                withAWS(region:'eu-west-1') {
+                withAWS(region:'eu-west-2') {
                     s3Upload(file:'index.html', bucket:'udacity-test-bassel', path:'index.html')
                 }
             }
