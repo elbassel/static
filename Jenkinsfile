@@ -10,5 +10,13 @@ pipeline {
                 '''
             }
         }
+        stage('Deploy') {
+            steps {
+                withAWS(region:'eu-west-1') {
+                    s3Upload(file:'file.txt', bucket:'udacity-test-bassel', path:'index.html')
+                }
+            }
+        }
+
     }
 }
